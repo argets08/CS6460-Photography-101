@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+         button.accordion {
+         background-color: #33b5e5;
+         color: #ffffff;
+         cursor: pointer;
+         padding: 18px;
+         width: 100%;
+         border: none;
+         text-align: left;
+         outline: none;
+         font-size: 15px;
+         transition: 0.4s;
+         }
+       
+         button.accordion.active, button.accordion:hover {
+         background-color: #abc7fc;
+         }
+         button.accordion:after {
+         content: '\002B';
+         color: #777;
+         font-weight: bold;
+         float: right;
+         margin-left: 5px;
+         }
+         button.accordion.active:after {
+         content: "\2212";
+         }
+         div.panel {
+         padding: 0 18px;
+         background-color: white;
+         max-height: 0;
+         overflow: hidden;
+         transition: max-height 0.2s ease-out;
+         }
+         * {
+         box-sizing: border-box;
+         }
+         video {
+         width: 100%;
+         height: auto;
+         }
+         .row:after {
+         content: "";
+         clear: both;
+         display: table;
+         }
+         [class*="col-"] {
+         float: left;
+         padding: 15px;
+         width: 100%;
+         }
+         @media only screen and (min-width: 600px) {
+         .col-s-1 {width: 8.33%;}
+         .col-s-2 {width: 16.66%;}
+         .col-s-3 {width: 25%;}
+         .col-s-4 {width: 33.33%;}
+         .col-s-5 {width: 41.66%;}
+         .col-s-6 {width: 50%;}
+         .col-s-7 {width: 58.33%;}
+         .col-s-8 {width: 66.66%;}
+         .col-s-9 {width: 75%;}
+         .col-s-10 {width: 83.33%;}
+         .col-s-11 {width: 91.66%;}
+         .col-s-12 {width: 100%;}
+         }
+         @media only screen and (min-width: 768px) {
+         .col-1 {width: 8.33%;}
+         .col-2 {width: 16.66%;}
+         .col-3 {width: 25%;}
+         .col-4 {width: 33.33%;}
+         .col-5 {width: 41.66%;}
+         .col-6 {width: 50%;}
+         .col-7 {width: 58.33%;}
+         .col-8 {width: 66.66%;}
+         .col-9 {width: 75%;}
+         .col-10 {width: 83.33%;}
+         .col-11 {width: 91.66%;}
+         .col-12 {width: 100%;}
+         }
+         html {
+         font-family: "Lucida Sans", sans-serif;
+         }
+         .header {
+         background-color: #33cc9b;
+         color: #ffffff;
+         padding: 15px;
+         }
+         .wrapper.accordion {
+         display: grid;
+         transition: 0.3s;
+         }
+         * {box-sizing: border-box;}
+         .wrapper {
+         border: 2px solid #ffffff;
+         border-radius: 5px;
+         
+         }
+         .wrapper > div {
+         border: 2px solid #ffffff;
+         border-radius: 5px;
+         background-color: #3297e5;
+         padding: 1em;
+         color: #d9480f;
+         }
+         .nested {
+         border: 2px solid #ffec99;
+         border-radius: 5px;
+         background-color: #3297e5;
+         padding: 1em;
+         }
+         .menu ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         }
+         .menu li {
+         padding: 8px;
+         margin-bottom: 7px;
+         color: #ffffff;
+         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+         }
+         .menu li:hover {
+         background-color: #0099cc;
+         }
+         .aside {
+         background-color: #33b5e5;
+         padding: 15px;
+         color: #ffffff;
+         text-align: center;
+         font-size: 14px;
+         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+         }
+         .footer {
+         background-color: #0099cc;
+         color: #ffffff;
+         text-align: center;
+         font-size: 12px;
+         padding: 15px;
+         }
+		 
+		 .button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #33b5e5;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 14px;
+  padding: 18px;
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+      </style>
+   </head>
+   <body>
+      <div class="header">
+         <h1>Photography Education 101</h1>
+      </div>
+      <div class="row">
+         <div class="col-3 col-s-3 menu">
+            <ul>
+               <li>
+                  <button class="accordion">Lesson 0: Introduction</button>
+                  <div class="panel">
+                     <div class="wrapper">
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/qWP3eEbB9_Q?controls=0');">Introduction to the Class</button>
+					
+      
+                        <button class="button" onclick="changeImage('https://www.youtube.com/embed/iSNOOHwqS4E?controls=0');">Introduction and Advice - Continued</button>
+                       
+                     </div>
+                  </div>
+               </li>
+               <li>
+			   <button class="accordion">Lesson 1: Light</button>
+                  <div class="panel">
+                     <div class="wrapper">
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/KcMhKKA2PCw?controls=0');">Light - Introduction</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/C76aC6ClK7I?controls=0');">Colors</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/mfQJC25_pEk?controls=0');">Intensity</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Xj78E0QQJJQ?controls=0');">Perception of the World</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Xkx_-ztpftY?controls=0');">Spectrum of Colors</button>
+                        <button class="button" onclick="changeImage('https://www.youtube.com/embed/yMr02lF3MqU?controls=0');">Spectrum of Colors - Continued</button>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                <button class="accordion">Lesson 2: Lenses</button>
+                  <div class="panel">
+                     <div class="wrapper">
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/AlS0iiWIN44?controls=0');">Lenses</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/-Xnv92HjRis?controls=0');">Lenses and Focal Lenghts</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/E5eaneCRajg?controls=0');">Lenses Deep Dive</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/rvhVQzxD0Jo?controls=0');">Concave Lenses</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/tvQ9JrW050c?controls=0');">Activity with Lenses</button>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                 <button class="accordion">Lesson 3: Cameras</button>
+                  <div class="panel">
+                     <div class="wrapper">
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Y6NT2y9oBkA?controls=0');">Cameras</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/EctF3Ns89qQ?controls=0');">Films</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/vVhKcM3VwN4?controls=0');">Image Sensor</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/z3tBoZ31SXI?controls=0');">Image Sensor Continued</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Bond1-c5By4?controls=0');">A Camera Lens</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/0eclpQ3_CHo?controls=0');">Activities</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/g50Wy3-XNBw?controls=0');">Activity: Camera Obscura</button>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                <button class="accordion">Lesson 4: DSLR</button>
+                  <div class="panel">
+                     <div class="wrapper">
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/4ULs9VdIgyk?controls=0');">Lesson Introduction</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Y1ouUtgMJ9g?controls=0');">Introduction to the DSLR</button>
+					 
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/0GihBykrlcM?controls=0');">Focal Lenghts</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/1bCqD_rsW2U?controls=0');">Focal Lenghts Showcase</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/E3vpeCvuUtQ?controls=0');">CameraSim - Focal Lenghts Exercise</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/HOYXkdE8V0M?controls=0');">ISO</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/y0lmaS8dxrY?controls=0');">CameraSim - ISO Exercise</button>
+				
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/MUcr1dCeMNc?controls=0');">Shutter Speed</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/rrKOPPpVb9Y?controls=0');">Shutter Speed Showcase</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/QYf6NQ03oYc?controls=0');">CameraSim - Shutter Speed Exercise</button>
+					 
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/VNDN0Ayo9R4?controls=0');">Aperture</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/Gn7AtYlKYb8?controls=0');">Aperture Showcase</button>
+					 <button class="button" onclick="changeImage('https://www.youtube.com/embed/BCU62Xhpv_Y?controls=0');">CameraSim - Aperture Exercise</button>
+					 
+					 
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+         <div class="col-9 col-s-11">
+            <iframe id="vsrc" width="600" height="400" src="https://www.youtube.com/embed/qWP3eEbB9_Q?controls=0">
+            </iframe>
+         </div>
+      </div>
+	  <div class="footer">
+         <p>Lessons Plans are hosted on Guthub:
+		 <a href="https://github.com/argets08/CS6460-Photography-101/tree/develop/Lesson%20Plans">Lesson Plans</a>
+		 </p>
+		 <p>Lessons Transcripts are hosted on Guthub:
+		 <a href="https://github.com/argets08/CS6460-Photography-101/tree/develop/Lesson%20Transcripts">Lesson Transcripts</a>
+		 </p>
+      </div>
+      
+      <div class="footer">
+         <p>CS6460 Educational Technology - Photography Education 101. Presented by Tanmaya Kumar</p>
+      </div>
+      <script> 
+         function changeImage(newSrc)
+         {
+         var img = document.getElementById("vsrc");
+         vsrc.src=newSrc;
+         return false;
+         }
+         
+      </script>
+      <script>
+         var acc = document.getElementsByClassName("accordion");
+         var i;
+         
+         for (i = 0; i < acc.length; i++) {
+           acc[i].onclick = function() {
+             this.classList.toggle("active");
+             var panel = this.nextElementSibling;
+             if (panel.style.maxHeight){
+               panel.style.maxHeight = null;
+             } else {
+               panel.style.maxHeight = panel.scrollHeight + "px";
+             } 
+           }
+         }
+      </script>
+   </body>
+</html>
